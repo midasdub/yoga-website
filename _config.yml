@@ -1,0 +1,30 @@
+# ── Site identity ───────────────────────────────────────────────
+title: Liudmyla
+tagline: notes from the mat
+description: >-
+  A personal journal of yoga practice — breath, postures,
+  and whatever shows up along the way.
+author: Liudmyla
+
+# ── URLs ────────────────────────────────────────────────────────
+# If you publish to  https://<username>.github.io          → leave baseurl empty
+# If you publish to  https://<username>.github.io/website  → baseurl: "/website"
+baseurl: ""
+# Your full site address. Set this once you know it — the RSS feed needs it
+# to produce complete links, e.g. url: "https://liudmyla.github.io"
+url: ""
+
+# ── Build ───────────────────────────────────────────────────────
+permalink: /journal/:year/:month/:day/:title/
+markdown: kramdown
+timezone: Europe/Kyiv
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: "post" }
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

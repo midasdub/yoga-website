@@ -1,0 +1,61 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">A practice journal</p>
+    <h1>Breath first. The posture follows.</h1>
+    <p class="lede">
+      I'm {{ site.author }}. This is where I keep notes on my yoga practice —
+      what I'm working on, what I'm learning to soften around, and the small
+      things I'd otherwise forget by next week.
+    </p>
+  </div>
+
+  <svg class="hero-mark" width="108" height="108" viewBox="0 0 108 108" fill="none" aria-hidden="true">
+    <circle cx="54" cy="54" r="34" stroke="currentColor" stroke-width="1"/>
+    <circle cx="54" cy="54" r="24" stroke="currentColor" stroke-width="1" opacity=".7"/>
+    <path d="M54 20c10 12 10 24 0 34-10-10-10-22 0-34Z" stroke="currentColor" stroke-width="1" opacity=".8"/>
+    <path d="M54 88c-10-12-10-24 0-34 10 10 10 22 0 34Z" stroke="currentColor" stroke-width="1" opacity=".8"/>
+    <path d="M20 54c12-10 24-10 34 0-10 10-22 10-34 0Z" stroke="currentColor" stroke-width="1" opacity=".55"/>
+    <path d="M88 54c-12 10-24 10-34 0 10-10 22-10 34 0Z" stroke="currentColor" stroke-width="1" opacity=".55"/>
+  </svg>
+</section>
+
+<div class="section-head">
+  <h2>Latest entries</h2>
+  <a href="{{ '/journal/' | relative_url }}">All entries &rarr;</a>
+</div>
+
+<ul class="entries">
+  {% for post in site.posts limit: 4 %}
+  <li class="entry">
+    <p class="entry-meta">
+      <span>{{ post.date | date: "%-d %B %Y" }}</span>
+      {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </p>
+    <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+  </li>
+  {% endfor %}
+</ul>
+
+<div class="section-head">
+  <h2>Where I am right now</h2>
+</div>
+
+<div class="prose">
+  <p>
+    Six mornings a week, usually before the kettle is cold. Mostly slow
+    vinyasa, one long yin session on the weekend, and ten quiet minutes of
+    breathing that I keep pretending is optional.
+  </p>
+  <p>
+    Currently working towards a steady <em>pincha mayurasana</em> against the
+    wall, and trying to stop rushing the exhale. See
+    <a href="{{ '/practice/' | relative_url }}">what I practise</a>, or
+    <a href="{{ '/about/' | relative_url }}">a bit more about me</a>.
+  </p>
+</div>

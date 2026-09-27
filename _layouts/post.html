@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <p class="eyebrow">Journal</p>
+    <h1>{{ page.title }}</h1>
+    <p class="post-date">
+      {{ page.date | date: "%-d %B %Y" }}
+      {% if page.place %} · {{ page.place }}{% endif %}
+      {% for tag in page.tags %} · <span class="tag">{{ tag }}</span>{% endfor %}
+    </p>
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav" aria-label="More entries">
+    <div>
+      {% if page.previous %}
+        <span>Previous</span>
+        <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title }}</a>
+      {% endif %}
+    </div>
+    <div style="text-align:right">
+      {% if page.next %}
+        <span>Next</span>
+        <a href="{{ page.next.url | relative_url }}">{{ page.next.title }}</a>
+      {% endif %}
+    </div>
+  </nav>
+</article>
